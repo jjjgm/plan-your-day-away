@@ -5,7 +5,7 @@ $(function () {
 
   //ADD DATE TO ID IN HEADER
   var currentDay = $("#currentDay")
-  var currentTime = dayjs().format("dddd,  MMMM DD, YYYY  hh:mmA")
+  var currentTime = dayjs().format("dddd  MMMM DD, YYYY  hh:mmA")
   // ADDED CURRENT DAY BEFORE DATE. DATE FORMATED FOR FULL MONTH, 2 DIG DAY, 4 DIG YEAR
 
   //LOOP FUNCTION FOR CLASS CHANGES FOR PAST PRESENT AND FUTURE GIVEN DAYJS TIME/DATE

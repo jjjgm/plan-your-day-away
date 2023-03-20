@@ -24,22 +24,32 @@ We will need to be modifying the starter code provided to meet the acceptance cr
         THEN the saved events persist
         ```
 
- This app runs in the browser and with my additions of jQuery functions to dynamically update HTML and CSS.
+ This app runs in the browser and with my additions of jQuery tools to dynamically update HTML and CSS.
+
+ I did the following:
+
+ 1. Changed classes on time blocksif it was: past, present, and/or future
+ 2. Saved all the tasks the user input into local storage after the save button was clicked
+ 3. Returned all saved user input onto the UI by getting back data from local storage, so that the saved information would display even after a refresh
 
 ## Install
-1.Copy files of starter code from class repository
+1. Copy files of starter code from class repository
 [CLASS REPO](https://uclax.bootcampcontent.com/UCLA-Coding-Boot-Camp/UCLA-VIRT-FSF-FT-02-2023-U-LOLC)
     Module 5-- Challenge
 
-2.Create new Github repo for Module 5 assingment in personal repository
+2. Create new Github repo for Module 5 assingment in personal repository
 
 ## Rescources
 [JQuery](https://api.jquery.com/click/)
+
+
 [DayJS](https://day.js.org/docs/en/parse/now)
 
 ## Deploy Link
-[]()
+[plan-your-day-away](https://jjjgm.github.io/plan-your-day-away/)
 
 ## Assets
-[planner](/assets/images/127.0.0.1_5500_index.html.png)
-[localstorage](/assets/images/Screen%20Shot%202023-03-20%20at%202.48.55%20PM.png)
+![planner](/assets/images/127.0.0.1_5500_index.html.png)
+
+
+![localstorage](/assets/images/Screen%20Shot%202023-03-20%20at%202.48.55%20PM.png)
