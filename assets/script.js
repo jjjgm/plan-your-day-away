@@ -1,77 +1,54 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-/*$.when( $.ready ).then(function() {
-  // Document is ready.
-});
-jQuery.now() */
 
-// time
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(function () {
   var now = dayjs()
   console.log(now);
 
   //ADD DATE TO ID IN HEADER
-  var currentDay = $("#currentDay") 
-  var currentTime = dayjs().format("dddd: MMMM DD, YYYY")
+  var currentDay = $("#currentDay")
+  var currentTime = dayjs().format("dddd,  MMMM DD, YYYY  hh:mmA")
   // ADDED CURRENT DAY BEFORE DATE. DATE FORMATED FOR FULL MONTH, 2 DIG DAY, 4 DIG YEAR
 
-  //DISPLAYS DAYJS INTO ID
+  //LOOP FUNCTION FOR CLASS CHANGES FOR PAST PRESENT AND FUTURE GIVEN DAYJS TIME/DATE
   currentDay.text(currentTime)
 
   var currentHour = dayjs().hour()
-  for (let i = 9; i < 18; i++) {
+  for (let i = 9; i < 18; i++) { //9-18 PICKED SINCE PLANNER IS 9-17
     var parentId = $("#hour-" + i)
     if (i < currentHour) {
-      (
+      ( //IF TIME IN BLOCK IS LESS THAN CURRENT HOUR WILL SHOW PAST CLASS
         parentId.children("textarea").addClass
           ("past")
       );
     } if (i > currentHour) {
+      // IF TIME IN BLOCK IS GREATER THAN CURRENT HOUR WILL DISPLAY FUTURE CLASS
       (parentId.children("textarea").addClass
         ("future")
       );
     }
     if (i == currentHour) {
+      // IF TIME IN BLOCK IS PRESENT TIME WILL DISPLAY PRESENT CLASS
       (parentId.children("textarea").addClass
         ("present")
       );
     }
     ;
   }
-  //create one for past present and future & switchfrom css  past present future
 
-
-
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-
+// SAVES TEXT INPUT INTO LOCAL STORAGE AFTER SAVE BUTTON PRESSED
   $(".saveBtn").on('click', function () {
-    var tasks = $(this).sibling('textarea').value();
-    var taskHour = $(this).parent('').attr("id");
+    var taskHour = $(this).parent().attr('id');
+    var tasks = $(this).siblings('textarea').val();
+    localStorage.setItem(taskHour, tasks);
+  })
 
-    localStorage.setItem(tasks, taskHour);
-
+// PULLS SAVED TEXT INPUT FROM LOCAL STORAGE AND DISPLAYS IT TIME BLOCK AFTER EACH REFRESH
+  $('.time-block').each(function () {
+    var savedBlock = $(this).attr('id');
+    var savedValue =
+      localStorage.getItem(savedBlock);
+    if (savedValue !== undefined) {
+      $(this).find('textarea').val(savedValue);
+    }
   });
 
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-
-
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? 
-
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  $(currentHour).array.forEach("#hour-" => {
-    
-  });
-  // TODO: Add code to display the current date in the header of the page.
 });
