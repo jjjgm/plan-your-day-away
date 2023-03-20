@@ -28,7 +28,7 @@ We will need to be modifying the starter code provided to meet the acceptance cr
 
  I did the following:
 
- 1. Changed classes on time blocksif it was: past, present, and/or future
+ 1. Changed classes on time blocks to display: past, present, and/or future colors from CSS sheet
  2. Saved all the tasks the user input into local storage after the save button was clicked
  3. Returned all saved user input onto the UI by getting back data from local storage, so that the saved information would display even after a refresh
 
